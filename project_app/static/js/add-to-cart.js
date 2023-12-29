@@ -20,18 +20,11 @@ function addToCart(productId, productName, productPrice) {
 }
 
 function updateCartUI(productName, productPrice) {
-    // Update the cart items UI
     var cartItemsList = document.querySelector('#cd-cart .cd-cart-items');
     var cartTotalElement = document.querySelector('#cart-total');
-
-    // Create a new list item for the added item
     var newItem = document.createElement('li');
     newItem.innerHTML = '<span class="cd-qty">1x</span> ' + productName + '<div class="cd-price">$' + productPrice + '</div> <a href="#" class="cd-item-remove cd-img-replace" onclick="removeFromCart(this)">Remove</a>';
-
-    // Append the new item to the cart items list
     cartItemsList.appendChild(newItem);
-
-    // Update the total cart price
     var totalCartPrice = parseFloat(cartTotalElement.textContent.replace('$', '')) + parseFloat(productPrice);
     cartTotalElement.textContent = '$' + totalCartPrice.toFixed(2); // Display with two decimal places
 }

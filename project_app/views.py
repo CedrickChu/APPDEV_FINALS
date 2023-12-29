@@ -189,6 +189,7 @@ def add_to_cart(request, item_id):
         return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
         
 
+
 def remove_from_cart(request, item_id):
     cart = get_object_or_404(Cart, user=request.user)
     cart_item = get_object_or_404(CartItem, cart=cart, id=item_id)
